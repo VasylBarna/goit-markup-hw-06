@@ -437,6 +437,114 @@
           </ul>
         </div>
       </div>
+      <!-- Занаятие форми разметок (input,label) -->
+      <form class="form js-speaker-form" autocomplete="off">
+        <div class="form-field">
+          <label class="form-label" for="name">Имя</label>
+          <input
+            class="form-input"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Иван Иванич"
+            autofocus
+          />
+        </div>
+        <div class="form-field">
+          <label for="tel">Телефон</label>
+          <input
+            type="tel"
+            name="tel"
+            id="tel"
+            placeholder="+38(098) --- -- --"
+          />
+        </div>
+        <div class="form-field">
+          <label for="mail">Почта</label>
+          <input type="email" name="mail" id="mail" autocomplete="on" />
+        </div>
+        <div role="group" class="group">
+          <h2 class="group-title">Тема доклада</h2>
+          <ul class="topic-options">
+            <li>
+              <input type="checkbox" name="topic" value="html" id="html" />
+              <label for="html">HTML</label>
+            </li>
+            <li>
+              <input type="checkbox" name="topic" value="css" id="css" />
+              <label for="css">CSS</label>
+            </li>
+            <li>
+              <input type="checkbox" name="topic" value="js" id="js" />
+              <label for="js">Javascript</label>
+            </li>
+          </ul>
+        </div>
+        <div role="group" class="group">
+          <h2 class="group-title">Уровень вашей експертизи</h2>
+          <ul class="experience-options">
+            <li>
+              <input
+                type="radio"
+                name="experience"
+                value="junior"
+                id="junior"
+              />
+              <label for="junior">Junior</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="experience"
+                value="middle"
+                id="middle"
+              />
+              <label for="middle">Middle</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="experience"
+                value="senior"
+                id="senior"
+                checked
+              />
+              <label for="senior">Senior</label>
+            </li>
+          </ul>
+        </div>
+        <div class="form-field">
+          <label for="date">Дата доклада</label>
+          <input
+            type="datetime-local"
+            name="date"
+            id="date"
+            min="2020-12-16T:12:00"
+            max="2020-12-21T:00:00"
+            class="date"
+          />
+        </div>
+        <div class="form-field">
+          <label for="pdf">Загрузить копию доклада в pdf</label>
+          <input type="file" name="pdf" id="pdf" />
+        </div>
+        <div class="form-field">
+          <label for="comment">Оставьте коментарий</label>
+          <textarea
+            class="comment"
+            name="comment"
+            id="comment"
+            cols="30"
+            rows="10"
+            placeholder="Уточните детали заказа"
+          ></textarea>
+        </div>
+        <div class="form-field">
+          <input type="checkbox" name="policy" id="policy" />
+          <label for="policy">Соглашаюсь на все</label>
+        </div>
+        <button type="submit">Оставить заявку</button>
+      </form>
     </footer>
     <!-- Модальне вікно -->
     <button data-modal-open></button>
@@ -446,10 +554,22 @@
         <button class="icon-close" data-modal-close></button>
       </div>
     </div>
-
     <!-- Фикстрованная навигация Хедера Javascript -->
     <script src="./js/page-header.js"></script>
 
     <script src="./js/modal.js"></script>
+    <script src="./js/input.js"></script>
+    <!-- <script>
+      (() => {
+        document
+        .querySelector(".js-speaker-form")
+        .addEventListener("submit", e=> {
+          e.preventDefault();
+          new FormData(e.currentTarget).forEach((value, name) =>
+          console.log(`${name}: ${value}`),
+          );
+        )};
+      })();
+    </script> -->
   </body>
 </html>

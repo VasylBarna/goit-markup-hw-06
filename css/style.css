@@ -683,3 +683,70 @@ img {
 .btn:hover:after {
   transform: translateY(calc(-50%));
 } */
+
+/* Занаятие форми разметок (input,label) */
+textarea {
+  resize: none;
+}
+.form {
+  width: 600px;
+  outline: 1px solid tomato;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+.form-field {
+  /* outline: 1px solid blue; */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.form-field input {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 18px;
+  border: 1px solid crimson;
+  border-radius: 4px;
+}
+.form-field label {
+  margin-bottom: 5px;
+}
+.form-field input::placeholder {
+  color: indigo;
+}
+.group {
+  margin-bottom: 20px;
+}
+.group-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.topic-options li {
+  display: flex;
+  align-items: center;
+}
+.topic-options {
+  margin: 0;
+  padding: 0;
+}
+.topic-options input[type="checkbox"] {
+}
+.topic-options label {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.experience-options {
+}
+
+.form-field .date {
+  border-color: aqua;
+  padding: 20px 40px;
+  border-width: 4px;
+  border-radius: 5px;
+  font-size: 30px;
+  color: green;
+  background-color: gray;
+}
+.comment {
+  padding: 8px;
+}
