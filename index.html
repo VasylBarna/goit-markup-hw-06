@@ -438,7 +438,12 @@
         </div>
       </div>
       <!-- Занаятие форми разметок (input,label) -->
-      <form class="form js-speaker-form" autocomplete="off">
+      <form
+        action="#"
+        method=""
+        class="form js-speaker-form"
+        autocomplete="off"
+      >
         <div class="form-field">
           <label class="form-label" for="name">Имя</label>
           <input
@@ -457,6 +462,7 @@
             name="tel"
             id="tel"
             placeholder="+38(098) --- -- --"
+            required
           />
         </div>
         <div class="form-field">
@@ -524,10 +530,34 @@
             class="date"
           />
         </div>
+        <label for="num">Select</label>
+        <select name="num" id="num">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <label for="word">Select-2</label>
+        <select name="word" id="word">
+          <optgroup label="alfavit">
+            <option value="aaaa">aaaa</option>
+            <option value="bbbb">bbbb</option>
+            <option value="cccc">cccc</option>
+          </optgroup>
+          <optgroup label="woord">
+            <option value="alpha">alpha</option>
+            <option value="beta">beta</option>
+            <option value="gamma">gamma</option>
+          </optgroup>
+        </select>
+        <label for="range">Range</label>
+        <input type="range" name="range" id="range" min="0" max="4" />
         <div class="form-field">
           <label for="pdf">Загрузить копию доклада в pdf</label>
           <input type="file" name="pdf" id="pdf" />
         </div>
+        <label for="color">Choose color</label>
+        <input type="color" name="color" id="color" />
         <div class="form-field">
           <label for="comment">Оставьте коментарий</label>
           <textarea

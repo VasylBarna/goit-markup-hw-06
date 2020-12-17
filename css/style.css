@@ -694,7 +694,30 @@ textarea {
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
+  /* Анимация */
+  animation-name: changeBgColor;
+  animation-duration: 5000ms;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-iteration-count: infinite;
 }
+@keyframes changeBgColor {
+  0% {
+    background-color: aqua;
+  }
+  25% {
+    background-color: coral;
+  }
+  50% {
+    background-color: chartreuse;
+  }
+  75% {
+    background-color: deeppink;
+  }
+  100% {
+    background-color: gold;
+  }
+}
+
 .form-field {
   /* outline: 1px solid blue; */
   margin-bottom: 20px;
