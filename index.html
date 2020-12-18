@@ -580,8 +580,45 @@
     <button data-modal-open></button>
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <p></p>
-        <button class="icon-close" data-modal-close></button>
+        <form action="#" method="" class="form js-speaker-form" autocomplete="off"
+        >
+          <p class="form-title">Оставьте свои данные, мы вам перезвоним</p>
+          <ul class="form-list list">
+          <li class="form-item" ><label class="form-label" for="name"><span class="label-title">Имя</span></label><input
+            class="form-input"
+            type="text"
+            name="name"
+            id="name"
+            autofocus/>
+          </li>
+          <li class="form-item"><label class="form-label" for="tel"><span class="label-title">Телефон</span></label><input class="form-input"
+            type="tel"
+            name="tel"
+            id="tel"
+            required/>
+          </li>
+          <li class="form-item"><label class="form-label" for="mail"><span class="label-title">Почта</span></label><input  class="form-input"
+            type="email" name="mail" id="mail" autocomplete="on" />
+          </li>
+          <li class="form-item"><label class="form-label" for="comment"><span class="label-title">Комментарий</span></label><textarea
+            class="form-input comment"
+            name="comment"
+            id="comment"
+            cols="30"
+            rows="10"
+            placeholder="Введите текст"></textarea>
+          </li>
+        </ul>
+        <div class="form-field checkbox">
+          <input type="checkbox" name="policy" id="policy" />
+          <label for="policy">Соглашаюсь с рассылкой и принимаю <a href="#" class="contract">Условия договора</a></label>
+        </div>
+        <button class="form-btn" type="submit">Отправить</button>
+        <button class="btn-close" data-modal-close>
+          <svg class="icon-close">
+            <use href="./images/sprite.svg#close"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <!-- Фикстрованная навигация Хедера Javascript -->
