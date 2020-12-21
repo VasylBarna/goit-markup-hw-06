@@ -255,12 +255,15 @@ img {
   height: 18px;
   fill: currentColor;
 }
-.btn-close:hover,
-.btn-close:focus {
+.btn-close:focus,
+.btn-close:hover {
   color: var(--accent-button-color);
 }
 .form {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
   padding: 0;
 }
 .form-title {
@@ -290,19 +293,18 @@ img {
   color: var(--title-text-color);
 }
 .form-input {
-  padding: 0;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  display: flex;
+  position: relative;
   min-width: 448px;
   min-height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
-}
-.comment {
-  padding-top: 12px;
-  padding-right: 16px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  margin-bottom: 20px;
+  transition: border-color 250ms var(--transition-timing-function);
 }
 textarea {
   resize: none;
@@ -310,15 +312,21 @@ textarea {
 .checkbox {
   margin-bottom: 30px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .checkbox label {
   margin-left: 8px;
+  cursor: pointer;
 }
 .contract {
-  text-decoration: underline;
+  text-decoration-line: underline;
   color: var(--accent-button-color);
+}
+.policy-input {
+  width: 16px;
+  cursor: pointer;
+  height: 15px;
 }
 .form-btn {
   margin-right: auto;
@@ -330,13 +338,51 @@ textarea {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
+  letter-spacing: 0.06em;
+  cursor: pointer;
   color: var(--white-button-color);
   background-color: var(--accent-button-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: none;
-  letter-spacing: 0.06em;
-  cursor: pointer;
+}
+.comment {
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  transition: border-color 250ms var(--transition-timing-function);
+}
+.mod-icon {
+  display: flex;
+  position: absolute;
+  fill: var(--primary-text-color);
+  transition: fill 250ms var(--transition-timing-function);
+}
+.persona {
+  top: 110px;
+  left: 50px;
+}
+.phone1 {
+  top: 185px;
+  left: 50px;
+}
+.email1 {
+  top: 255px;
+  left: 50px;
+}
+.form-input:focus ~ .mod-icon {
+  fill: var(--accent-button-color);
+}
+.form-list .form-input:focus {
+  border-color: var(--accent-button-color);
+  outline-style: none;
+}
+.vector::before {
+  top: 529.5px;
+  left: 91.5px;
 }
 
 /* Feature */
@@ -785,68 +831,73 @@ textarea {
 
 /* Занаятие форми разметок (input,label) */
 /* textarea {
-    resize: none;
-  }
-  .form {
-    width: 600px;
-    outline: 1px solid tomato;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 20px;
-  }
+  resize: none;
+}
+.form {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
 
-  .form-field {
-    outline: 1px solid blue;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .form-field input {
-    margin: 0;
-    padding: 6px 10px;
-    font-size: 18px;
-    border: 1px solid crimson;
-    border-radius: 4px;
-  }
-  .form-field label {
-    margin-bottom: 5px;
-  }
-  .form-field input::placeholder {
-    color: indigo;
-  }
-  .group {
-    margin-bottom: 20px;
-  }
-  .group-title {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  .topic-options li {
-    display: flex;
-    align-items: center;
-  }
-  .topic-options {
-    margin: 0;
-    padding: 0;
-  }
-  .topic-options input[type="checkbox"] {
-  }
-  .topic-options label {
-    font-size: 20px;
-    margin-left: 10px;
-  }
-  .experience-options {
-  }
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.form-field input {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 18px;
+  border: 1px solid crimson;
+  border-radius: 4px;
+}
+.form-field label {
+  margin-bottom: 5px;
+}
+.form-field input::placeholder {
+  color: indigo;
+}
+.group {
+  margin-bottom: 20px;
+}
+.group-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.topic-options li {
+  display: flex;
+  align-items: center;
+}
+.topic-options {
+  margin: 0;
+  padding: 0;
+}
+.topic-options input[type="checkbox"] {
+}
+.topic-options label {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.experience-options {
+}
 
-  .form-field .date {
-    border-color: aqua;
-    padding: 20px 40px;
-    border-width: 4px;
-    border-radius: 5px;
-    font-size: 30px;
-    color: green;
-    background-color: gray;
-  }
-  .comment {
-    padding: 8px;
-  } */
+.form-field .date {
+  border-color: aqua;
+  padding: 20px 40px;
+  border-width: 4px;
+  border-radius: 5px;
+  font-size: 30px;
+  color: green;
+  background-color: gray;
+}
+.comment {
+  padding: 8px;
+}
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-50px);
+}
+.form-input:placeholder-shown {
+  color: aqua;
+} */
