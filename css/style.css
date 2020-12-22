@@ -219,7 +219,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 528px;
+  min-width: 528px;
   min-height: 581px;
 
   padding-top: 40px;
@@ -231,6 +231,7 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: transform 250ms var(--transition-timing-function);
 }
 
 .btn-close {
@@ -254,52 +255,57 @@ img {
   width: 18px;
   height: 18px;
   fill: currentColor;
+  transition: color 250ms var(--transition-timing-function);
 }
 .btn-close:focus,
 .btn-close:hover {
   color: var(--accent-button-color);
 }
 .form {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
   padding: 0;
 }
 .form-title {
   margin-top: 0;
+  margin-right: 0;
   margin-bottom: 12px;
+  margin-left: 0;
   display: block;
   text-align: center;
-  width: 100%;
+  min-width: 448px;
   font-size: 20px;
-  line-height: 1.17;
+  line-height: 1.15;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--primary-text-color);
 }
-.form-item {
-  display: flex;
-  flex-direction: column;
-}
-.form-item:not(:last-child) {
+.form-field:not(:last-child) {
   margin-bottom: 10px;
 }
-.label-title {
-  margin-bottom: 4px;
+.form-field {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.form-lable {
+  display: contents;
   font-size: 12px;
   line-height: 1.17px;
   letter-spacing: 0.01em;
   color: var(--title-text-color);
 }
+.form-lable:not(:last-child) {
+  margin-bottom: 4px;
+}
+
 .form-input {
   padding-top: 10px;
   padding-right: 0px;
   padding-bottom: 10px;
   padding-left: 35px;
-  display: flex;
-  position: relative;
-  min-width: 448px;
+  width: 100%;
   min-height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
@@ -310,23 +316,18 @@ textarea {
   resize: none;
 }
 .checkbox {
-  margin-bottom: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-.checkbox label {
-  margin-left: 8px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
   cursor: pointer;
 }
 .contract {
+  margin-left: 3px;
   text-decoration-line: underline;
   color: var(--accent-button-color);
-}
-.policy-input {
-  width: 16px;
-  cursor: pointer;
-  height: 15px;
 }
 .form-btn {
   margin-right: auto;
@@ -347,42 +348,72 @@ textarea {
   border: none;
 }
 .comment {
+  margin-bottom: 20px;
   padding-top: 12px;
   padding-right: 16px;
   padding-bottom: 12px;
   padding-left: 16px;
-  margin-bottom: 20px;
   display: flex;
   transition: border-color 250ms var(--transition-timing-function);
 }
 .mod-icon {
-  display: flex;
+  display: inline-block;
+  top: 75%;
+  left: 12px;
+  transform: translateY(-75%);
   position: absolute;
   fill: var(--primary-text-color);
   transition: fill 250ms var(--transition-timing-function);
 }
-.persona {
-  top: 110px;
-  left: 50px;
-}
-.phone1 {
-  top: 185px;
-  left: 50px;
-}
-.email1 {
-  top: 255px;
-  left: 50px;
-}
+
 .form-input:focus ~ .mod-icon {
   fill: var(--accent-button-color);
 }
-.form-list .form-input:focus {
+.form .form-input:focus {
   border-color: var(--accent-button-color);
   outline-style: none;
 }
-.vector::before {
-  top: 529.5px;
-  left: 91.5px;
+.vector {
+  top: 535px;
+  left: 52px;
+  width: 16px;
+  height: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+}
+.check::before {
+  display: inline-block;
+  content: "";
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  background-image: url(../images/Vector.svg);
+  fill: var(--title-text-color);
+  transition: fill 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    background-image 250ms var(--timing-function);
+}
+.checkbox:checked + .vector {
+  border-color: var(--accent-button-color);
+  background-color: var(--accent-button-color);
+  background-origin: border-box;
 }
 
 /* Feature */
@@ -657,6 +688,70 @@ textarea {
 .soc-list li:not(:last-child) {
   margin-right: 10px;
 }
+.subscribe {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 93px;
+}
+.subscribe-title {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 20px;
+  margin-left: 0;
+  display: block;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+.form-footer {
+  display: flex;
+}
+.footer-input {
+  margin-right: 12px;
+  padding-top: 15px;
+  padding-right: 16px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  min-width: 358px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.25px;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: transparent;
+}
+.subscribe .btn {
+  padding-top: 10px;
+  padding-right: 28px;
+  padding-bottom: 10px;
+  padding-left: 28px;
+  max-width: 200px;
+  display: flex;
+  color: var(--white-button-color);
+  background-color: var(--accent-button-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.subscribe .send {
+  margin-left: 10px;
+}
 /*project Portfolio*/
 .section-filters {
   flex-direction: column;
@@ -802,102 +897,3 @@ textarea {
   cursor: pointer;
   transition: background-color 250ms var(--transition-timing-function);
 }
-/* Заменна иконки в button */
-/* .btn::before, .btn::after  {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: orange;
-  transition: transform 250ms var(--transition-timing-function);
-}
-.btn:hover,
-.btn:focus {
-  background-color: red;
-}
-.btn:hover::before {
-  transform: translateY(-35px);
-}
-.btn::after {
-  position: absolute;
-  top: 62.5%;
-  left: 736px;
-  background-color: green;
-  transform: translateY(calc(-50% + 35px));
-}
-.btn:hover:after {
-  transform: translateY(calc(-50%));
-} */
-
-/* Занаятие форми разметок (input,label) */
-/* textarea {
-  resize: none;
-}
-.form {
-  width: 600px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 20px;
-}
-
-.form-field {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-.form-field input {
-  margin: 0;
-  padding: 6px 10px;
-  font-size: 18px;
-  border: 1px solid crimson;
-  border-radius: 4px;
-}
-.form-field label {
-  margin-bottom: 5px;
-}
-.form-field input::placeholder {
-  color: indigo;
-}
-.group {
-  margin-bottom: 20px;
-}
-.group-title {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-.topic-options li {
-  display: flex;
-  align-items: center;
-}
-.topic-options {
-  margin: 0;
-  padding: 0;
-}
-.topic-options input[type="checkbox"] {
-}
-.topic-options label {
-  font-size: 20px;
-  margin-left: 10px;
-}
-.experience-options {
-}
-
-.form-field .date {
-  border-color: aqua;
-  padding: 20px 40px;
-  border-width: 4px;
-  border-radius: 5px;
-  font-size: 30px;
-  color: green;
-  background-color: gray;
-}
-.comment {
-  padding: 8px;
-}
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label {
-  transform: translateY(-50px);
-}
-.form-input:placeholder-shown {
-  color: aqua;
-} */
