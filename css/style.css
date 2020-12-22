@@ -249,6 +249,7 @@ img {
   background-color: var(--white-button-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  outline: transparent;
   transition: color 250ms var(--transition-timing-function);
 }
 .icon-close {
@@ -312,23 +313,6 @@ img {
   border-radius: 4px;
   transition: border-color 250ms var(--transition-timing-function);
 }
-textarea {
-  resize: none;
-}
-.checkbox {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-}
-.contract {
-  margin-left: 3px;
-  text-decoration-line: underline;
-  color: var(--accent-button-color);
-}
 .form-btn {
   margin-right: auto;
   margin-left: auto;
@@ -347,23 +331,14 @@ textarea {
   border-radius: 4px;
   border: none;
 }
-.comment {
-  margin-bottom: 20px;
-  padding-top: 12px;
-  padding-right: 16px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  display: flex;
-  transition: border-color 250ms var(--transition-timing-function);
-}
 .mod-icon {
   display: inline-block;
   top: 75%;
   left: 12px;
   transform: translateY(-75%);
   position: absolute;
-  fill: var(--primary-text-color);
-  transition: fill 250ms var(--transition-timing-function);
+  color: var(--primary-text-color);
+  transition: color 250ms var(--transition-timing-function);
 }
 
 .form-input:focus ~ .mod-icon {
@@ -373,15 +348,40 @@ textarea {
   border-color: var(--accent-button-color);
   outline-style: none;
 }
-.vector {
-  top: 535px;
-  left: 52px;
-  width: 16px;
-  height: 15px;
-  transform: translateY(-50%);
-  cursor: pointer;
+.comment {
+  margin-bottom: 20px;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  display: flex;
+  transition: border-color 250ms var(--transition-timing-function);
 }
-.visually-hidden {
+textarea {
+  resize: none;
+}
+.contract {
+  margin-left: 4px;
+  text-decoration-line: underline;
+  color: var(--accent-button-color);
+}
+.checkbox-lable {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  justify-content: center;
+}
+
+/* .checkbox {
+  appearance: none;
+  position: absolute;
+} */
+/* .visually-hidden */
+.checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -394,26 +394,25 @@ textarea {
   overflow: hidden;
 }
 
-.check {
-  display: flex;
-  align-items: center;
-}
-.check::before {
+.check-icon {
+  margin-right: 15px;
   display: inline-block;
-  content: "";
+  align-items: center;
   width: 16px;
   height: 15px;
-  margin-right: 8px;
-  background-image: url(../images/Vector.svg);
-  fill: var(--title-text-color);
-  transition: fill 250ms var(--timing-function),
-    background-color 250ms var(--timing-function),
-    background-image 250ms var(--timing-function);
+  cursor: pointer;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 3px;
 }
-.checkbox:checked + .vector {
+
+.checkbox:checked + .check-icon {
   border-color: var(--accent-button-color);
   background-color: var(--accent-button-color);
+  background-repeat: no-repeat;
+  background-position-y: center;
   background-origin: border-box;
+  background-image: url(../images/Vector-check.svg);
+  background-size: contain;
 }
 
 /* Feature */
@@ -878,22 +877,4 @@ textarea {
 .project-list .item:hover .overlay-text,
 .project-list .item:focus .overlay-text {
   transform: translateY(0%);
-}
-/* Галочка */
-
-.hero.btn {
-  position: relative;
-  padding: 10px 32px;
-  overflow: hidden;
-  color: var(--white-button-color);
-  background-color: var(--accent-button-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: none;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: background-color 250ms var(--transition-timing-function);
 }
